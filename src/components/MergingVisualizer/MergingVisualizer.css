@@ -1,0 +1,28 @@
+.merging-container {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-rows: 1fr 1fr 2fr 1fr;
+}
+.array-one {
+  grid-column: 2/3;
+  grid-row: 1;
+}
+.array-two {
+  grid-column: 2/3;
+  grid-row: 2;
+}
+.merged-array {
+  grid-column: 2/3;
+  grid-row: 3/4;
+}
+.btn-merge {
+  grid-column: 2/3;
+  grid-row: 5;
+  justify-items: center;
+}
+.array-item {
+  display: inline-block;
+  width: 20px;
+  margin: 0 1px;
+  border: 1px solid black;
+}
