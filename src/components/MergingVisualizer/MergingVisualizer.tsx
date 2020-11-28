@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { random } from "../../utils/utils";
+import { createRandomArray } from "../../utils/utils";
 import "./MergingVisualizer.css";
 import {
   mergeInSortedOrder,
@@ -8,31 +8,29 @@ import {
 import { ArrayItem } from "./ArrayItem";
 import { MergedArrayItem } from "./MergedArrayItem";
 
+const createRandomArrayForMerge = () => {
+  return createRandomArray(15, 1, 20).sort((a, b) => a - b);
+};
 export const MergingVisualizer: React.FC = () => {
   const [arrayOne, setArrayOne] = useState<number[]>([]);
   const [arrayTwo, setArrayTwo] = useState<number[]>([]);
   const [mergedArray, setMergedArray] = useState<number[]>([]);
   const [displayArray, setDisplayArray] = useState<number[]>([]);
+  const [disabled, setDisabled] = useState<boolean>(false);
 
   useEffect(() => {
-    setArrayOne(resetArray);
-    setArrayTwo(resetArray);
+    setArrayOne(createRandomArrayForMerge);
+    setArrayTwo(createRandomArrayForMerge);
   }, []);
 
-  const resetArray = () => {
-    const arr: number[] = [];
-    for (let i = 0; i < 15; i++) {
-      arr.push(random(1, 20));
-    }
-    arr.sort((a, b) => a - b);
-    return arr;
-  };
   const mergeArray = () => {
+    setDisabled(!disabled);
     setMergedArray([]);
     setDisplayArray([]);
     setMergedArray(mergeInSortedOrder(arrayOne, arrayTwo));
   };
   const mergeArrayNoDuplicates = () => {
+    setDisabled(!disabled);
     setMergedArray([]);
     setDisplayArray([]);
     setMergedArray(mergeInSortedOrderWithNoDuplicate(arrayOne, arrayTwo));
@@ -47,20 +45,24 @@ export const MergingVisualizer: React.FC = () => {
         mergedArr={mergedArray}
         displayArray={displayArray}
         setDisplayArray={setDisplayArray}
+        disabled={disabled}
+        setDisabled={setDisabled}
       />
       <div className="btn-merge">
         <button
           onClick={() => {
-            setArrayOne(resetArray());
-            setArrayTwo(resetArray());
+            setArrayOne(createRandomArrayForMerge);
+            setArrayTwo(createRandomArrayForMerge);
             setMergedArray([]);
             setDisplayArray([]);
           }}
         >
           New Array
         </button>
-        <button onClick={() => mergeArray()}>Merge</button>
-        <button onClick={() => mergeArrayNoDuplicates()}>
+        <button onClick={() => mergeArray()} disabled={disabled}>
+          Merge
+        </button>
+        <button onClick={() => mergeArrayNoDuplicates()} disabled={disabled}>
           Merge with no Dupes
         </button>
       </div>

@@ -17,7 +17,7 @@ export const mergeInSortedOrder = (arr1: number[], arr2: number[]) =>{
 }
 
 export const mergeInSortedOrderWithNoDuplicate = (arr1:number[],arr2:number[] ) =>{
-    let temp = [];
+    let temp: number[] = [];
     let i = 0, j = 0, curr = 0;
     while(curr < (arr1.length + arr2.length)){
         let isArr1Depleted = i >= arr1.length;
