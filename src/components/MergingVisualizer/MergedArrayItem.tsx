@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import { formatName } from "../../utils/utils";
 interface MergedArrayItemProps {
   mergedArr: number[];
   displayArray: number[];

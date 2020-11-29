@@ -1,17 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
+import { getInsertionSortAnimation } from "../../algorithms/InsertionSort";
 import { CreateRandomArrayForSort, sortAnimation } from "../../utils/utils";
-import { getQuickSortAnimations } from "../../algorithms/QuickSort";
 import { SortVisualizer } from "./SortVisualizer";
 
-export const QuickSort: React.FC = () => {
+export const InsertionSort: React.FC = () => {
   const [array, setArray] = useState<number[]>([]);
 
   useEffect(() => {
     setArray(CreateRandomArrayForSort);
   }, []);
 
-  const quickSort = () => {
-    const animations = getQuickSortAnimations(array);
+  const insertionSort = () => {
+    const animations = getInsertionSortAnimation(array);
     sortAnimation(animations);
   };
 
@@ -19,8 +19,8 @@ export const QuickSort: React.FC = () => {
     <SortVisualizer
       array={array}
       setArray={setArray}
-      sort={quickSort}
-      sortName="Quick Sort"
+      sort={insertionSort}
+      sortName="Insertion Sort"
     />
   );
 };

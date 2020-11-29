@@ -15,6 +15,9 @@ export const createRandomArray = (numOfElements: number, min: number, max: numbe
     return arr;
   };
 
+export const CreateRandomArrayForSort = () => {
+    return createRandomArray(110, 5, 400);
+  };
 export const sortAnimation = (animations: any) => {
   for (let i = 0; i < animations.length; i++) {
     const arrBars = Array.from(

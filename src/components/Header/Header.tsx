@@ -17,6 +17,11 @@ export const Header: React.FC = () => {
           </Link>
         </li>
         <li>
+          <Link className="insertsort" to="/insertsort">
+            Insertion Sort
+          </Link>
+        </li>
+        <li>
           <Link className="merge" to="/merge">
             Merge Two Sorted Arrays
           </Link>

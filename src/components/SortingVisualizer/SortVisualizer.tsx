@@ -1,4 +1,5 @@
 import React from "react";
+import { CreateRandomArrayForSort } from "../../utils/utils";
 import "./SortVisualizer.css";
 
 interface SortingItemProps {
@@ -6,7 +7,6 @@ interface SortingItemProps {
   setArray: React.Dispatch<React.SetStateAction<number[]>>;
   sort: () => void;
   sortName: string;
-  createRandom: () => number[];
 }
 
 export const SortVisualizer: React.FC<SortingItemProps> = ({
@@ -14,7 +14,6 @@ export const SortVisualizer: React.FC<SortingItemProps> = ({
   setArray,
   sort,
   sortName,
-  createRandom,
 }) => {
   return (
     <div className="sorting-container">
@@ -33,7 +32,7 @@ export const SortVisualizer: React.FC<SortingItemProps> = ({
       <div className="btn-sort">
         <button
           onClick={() => {
-            setArray(createRandom);
+            setArray(CreateRandomArrayForSort);
           }}
         >
           New Array

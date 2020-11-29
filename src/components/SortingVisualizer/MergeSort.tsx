@@ -1,11 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { createRandomArray, sortAnimation } from "../../utils/utils";
+import { CreateRandomArrayForSort, sortAnimation } from "../../utils/utils";
 import { getMergeSortAnimations } from "../../algorithms/MergeSort";
 import { SortVisualizer } from "./SortVisualizer";
-
-const CreateRandomArrayForSort = () => {
-  return createRandomArray(110, 5, 350);
-};
 
 export const MergeSort: React.FC = () => {
   const [array, setArray] = useState<number[]>([]);
@@ -25,7 +21,6 @@ export const MergeSort: React.FC = () => {
       setArray={setArray}
       sort={mergeSort}
       sortName="Merge Sort"
-      createRandom={CreateRandomArrayForSort}
     />
   );
 };
