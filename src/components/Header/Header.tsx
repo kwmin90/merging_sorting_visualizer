@@ -7,13 +7,18 @@ export const Header: React.FC = () => {
     <nav>
       <ul>
         <li>
-          <Link className="home" to="/">
-            Merge Two Sorted Arrays
+          <Link className="quicksort" to="/quicksort">
+            Quick Sort
           </Link>
         </li>
         <li>
-          <Link className="sort" to="/sort">
-            Quick Sort
+          <Link className="mergesort" to="/mergesort">
+            Merge Sort
+          </Link>
+        </li>
+        <li>
+          <Link className="merge" to="/merge">
+            Merge Two Sorted Arrays
           </Link>
         </li>
       </ul>

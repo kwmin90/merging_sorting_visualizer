@@ -14,3 +14,18 @@ export const createRandomArray = (numOfElements: number, min: number, max: numbe
     }
     return arr;
   };
+
+export const sortAnimation = (animations: any) => {
+  for (let i = 0; i < animations.length; i++) {
+    const arrBars = Array.from(
+      document.getElementsByClassName(
+        "array-bar"
+      ) as HTMLCollectionOf<HTMLElement>
+    );
+    setTimeout(() => {
+      const [barOneIdx, newHeight] = animations[i];
+      const barOneStyle = arrBars[barOneIdx].style;
+      barOneStyle.height = `${newHeight}px`;
+    }, i * 10);
+  }
+};

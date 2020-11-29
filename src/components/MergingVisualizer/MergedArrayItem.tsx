@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { formatName } from "../../utils/utils";
 interface MergedArrayItemProps {
-  name: string;
   mergedArr: number[];
   displayArray: number[];
   setDisplayArray: React.Dispatch<React.SetStateAction<number[]>>;
@@ -10,7 +9,6 @@ interface MergedArrayItemProps {
 }
 
 export const MergedArrayItem: React.FC<MergedArrayItemProps> = ({
-  name,
   mergedArr,
   displayArray,
   setDisplayArray,
@@ -27,7 +25,7 @@ export const MergedArrayItem: React.FC<MergedArrayItemProps> = ({
   useEffect(() => {
     (async () => {
       for (let el of mergedArr) {
-        await delay(500);
+        await delay(200);
         setDisplayArray((arr: number[]) => [...arr, el]);
       }
       if (disabled) {
@@ -36,8 +34,7 @@ export const MergedArrayItem: React.FC<MergedArrayItemProps> = ({
     })();
   }, [mergedArr, setDisplayArray, setDisabled]);
   return (
-    <div className={name}>
-      {`${formatName(name)}: `}
+    <div className="merged-array-container">
       {displayArray.map((item, index) => (
         <div className="array-item" key={index}>
           {item}

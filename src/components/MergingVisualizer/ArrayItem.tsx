@@ -1,15 +1,12 @@
 import React from "react";
-import { formatName } from "../../utils/utils";
 
 interface ArrayItemProps {
-  name: string;
   array: number[];
 }
 
-export const ArrayItem: React.FC<ArrayItemProps> = ({ name, array }) => {
+export const ArrayItem: React.FC<ArrayItemProps> = ({ array }) => {
   return (
-    <div className={name}>
-      {`${formatName(name)}: `}
+    <div className="array-container">
       {array.map((item, index) => (
         <div className="array-item" key={index}>
           {item}

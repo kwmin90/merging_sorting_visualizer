@@ -1,7 +1,8 @@
 import React from "react";
 import { MergingVisualizer } from "./components/MergingVisualizer/MergingVisualizer";
 import { HashRouter, Switch, Route } from "react-router-dom";
-import { SortingVisualizer } from "./components/SortingVisualizer/SortingVisualizer";
+import { QuickSort } from "./components/SortingVisualizer/QuickSort";
+import { MergeSort } from "./components/SortingVisualizer/MergeSort";
 import { Header } from "./components/Header/Header";
 
 function App() {
@@ -10,8 +11,10 @@ function App() {
       <div>
         <Header />
         <Switch>
-          <Route exact path="/" component={MergingVisualizer} />
-          <Route exact path="/sort" component={SortingVisualizer} />
+          <Route exact path="/" component={QuickSort} />
+          <Route exact path="/quicksort" component={QuickSort} />
+          <Route exact path="/mergesort" component={MergeSort} />
+          <Route exact path="/merge" component={MergingVisualizer} />
         </Switch>
       </div>
     </HashRouter>

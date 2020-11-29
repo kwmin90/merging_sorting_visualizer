@@ -9,7 +9,7 @@ import { ArrayItem } from "./ArrayItem";
 import { MergedArrayItem } from "./MergedArrayItem";
 
 const createRandomArrayForMerge = () => {
-  return createRandomArray(15, 1, 20).sort((a, b) => a - b);
+  return createRandomArray(21, 1, 20).sort((a, b) => a - b);
 };
 export const MergingVisualizer: React.FC = () => {
   const [arrayOne, setArrayOne] = useState<number[]>([]);
@@ -38,16 +38,24 @@ export const MergingVisualizer: React.FC = () => {
 
   return (
     <div className="merging-container">
-      <ArrayItem name="array-one" array={arrayOne} />
-      <ArrayItem name="array-two" array={arrayTwo} />
-      <MergedArrayItem
-        name="merged-array"
-        mergedArr={mergedArray}
-        displayArray={displayArray}
-        setDisplayArray={setDisplayArray}
-        disabled={disabled}
-        setDisabled={setDisabled}
-      />
+      <div className="array-one">Array One: </div>
+      <div className="array-one-items">
+        <ArrayItem array={arrayOne} />
+      </div>
+      <div className="array-two">Array Two: </div>
+      <div className="array-two-items">
+        <ArrayItem array={arrayTwo} />
+      </div>
+      <div className="merged-array">Merged Array: </div>
+      <div className="merged-array-items">
+        <MergedArrayItem
+          mergedArr={mergedArray}
+          displayArray={displayArray}
+          setDisplayArray={setDisplayArray}
+          disabled={disabled}
+          setDisabled={setDisabled}
+        />
+      </div>
       <div className="btn-merge">
         <button
           onClick={() => {
