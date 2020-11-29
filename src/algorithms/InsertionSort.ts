@@ -12,12 +12,12 @@ const insertionSort = (arr: number[], animations: any)=>{
     for(let i = 1; i < n; i++){
         let curr = arr[i];
         let j = i-1;
-        while((j>-1) && (curr < arr[j])){
+        while(j>-1 && curr < arr[j]){
             arr[j+1] = arr[j];
             j--;
         }
         arr[j+1] = curr;
-        animations.push([i, arr[j]])
+        animations.push([i, curr])
     }
     return arr;
 }

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { createRandomArray } from "../../utils/utils";
+import { createRandomArrayForMerge } from "../../utils/utils";
 import "./MergingVisualizer.css";
 import {
   mergeInSortedOrder,
@@ -8,9 +8,6 @@ import {
 import { ArrayItem } from "./ArrayItem";
 import { MergedArrayItem } from "./MergedArrayItem";
 
-const createRandomArrayForMerge = () => {
-  return createRandomArray(21, 1, 20).sort((a, b) => a - b);
-};
 export const MergingVisualizer: React.FC = () => {
   const [arrayOne, setArrayOne] = useState<number[]>([]);
   const [arrayTwo, setArrayTwo] = useState<number[]>([]);

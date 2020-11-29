@@ -33,7 +33,7 @@ const partition = (arr: number[], low: number, high: number, animations: any) =>
    return i;
 }
 
-export const quickSort = (arr: number[], low: number, high: number, animations: any) =>{
+const quickSort = (arr: number[], low: number, high: number, animations: any) =>{
     let index;
     if(arr.length > 1){
         index = partition(arr, low, high, animations);
@@ -42,6 +42,39 @@ export const quickSort = (arr: number[], low: number, high: number, animations: 
         }
         if(index < high){
             quickSort(arr, index, high, animations);
+        }
+    }
+    return arr;
+}
+
+const partitionForTest = (arr: number[], low: number, high: number) =>{
+    let pivot = arr[Math.floor((low + high)/2)];
+    let i = low;
+    let j = high;
+   while (i <= j){
+       while(arr[i] < pivot){
+           i++;
+       }
+       while(arr[j] > pivot){
+           j--;
+       }
+       if(i <= j){
+           swap(arr, i, j);
+           i++;
+           j--;
+       }
+   }
+   return i;
+}
+export const quickSortForTest = (arr: number[], low: number, high: number) =>{
+    let index;
+    if(arr.length > 1){
+        index = partitionForTest(arr, low, high);
+        if(low < index-1){
+            quickSortForTest(arr, low, index-1);
+        }
+        if(index < high){
+            quickSortForTest(arr, index, high);
         }
     }
     return arr;

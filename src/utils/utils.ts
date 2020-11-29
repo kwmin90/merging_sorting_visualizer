@@ -7,12 +7,16 @@ export const formatName = (name: string)=>{
     return temp;
 }
 
-export const createRandomArray = (numOfElements: number, min: number, max: number ) => {
+const createRandomArray = (numOfElements: number, min: number, max: number ) => {
     const arr: number[] = [];
     for (let i = 0; i < numOfElements; i++) {
       arr.push(random(min, max));
     }
     return arr;
+  };
+
+export const createRandomArrayForMerge = () => {
+    return createRandomArray(21, 1, 20).sort((a, b) => a - b);
   };
 
 export const CreateRandomArrayForSort = () => {

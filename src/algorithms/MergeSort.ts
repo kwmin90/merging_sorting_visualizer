@@ -42,3 +42,32 @@ const mergeSort = (arr:number[], start: number, middle: number, end: number, aux
         arr[k++] = auxArr[j++];
     }
 }
+
+export const mergeSortHelperForTest = (arr: number[], start: number, end: number, auxArr: number[]) =>{
+    if(start === end) return;
+    const middle = Math.floor((start + end)/2);
+    mergeSortHelperForTest(auxArr, start, middle, arr);
+    mergeSortHelperForTest(auxArr, middle+1, end, arr);
+    mergeSortForTest(arr, start, middle, end, auxArr);
+    return arr;
+}
+
+const mergeSortForTest = (arr:number[], start: number, middle: number, end: number, auxArr: number[]) =>{
+    let k = start;
+    let i = start;
+    let j = middle + 1;
+
+    while(i <= middle && j <= end){
+        if(auxArr[i] <= auxArr[j]){
+            arr[k++] = auxArr[i++];
+        }else{
+            arr[k++] = auxArr[j++];
+        }
+    }
+    while (i <= middle){
+        arr[k++] = auxArr[i++];
+    }
+    while(j <= end){
+        arr[k++] = auxArr[j++];
+    }
+}
