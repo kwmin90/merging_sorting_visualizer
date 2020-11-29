@@ -1,7 +1,8 @@
 import { mergeInSortedOrder, mergeInSortedOrderWithNoDuplicate} from '../utils/MergingUtil';
+import { createRandomArray } from '../utils/utils';
 
-const arr1 = [1,1,2,3,4,4,5,8,8,9,9,10];
-const arr2 = [3,3,4,5,6,7,8,9,9,9,10,11];
+const arr1 = createRandomArray(15, 1, 20).sort((a, b) => a - b);
+const arr2 = createRandomArray(15, 1, 20).sort((a, b) => a - b);
 
 declare global {
     namespace jest {
