@@ -14,10 +14,25 @@ const insertionSort = (arr: number[], animations: any)=>{
         let j = i-1;
         while(j>-1 && curr < arr[j]){
             arr[j+1] = arr[j];
+            animations.push([j+1, arr[j]])
             j--;
         }
         arr[j+1] = curr;
-        animations.push([i, curr])
+        animations.push([j+1, curr])
+    }
+    return arr;
+}
+
+export const insertionSortForTest = (arr: number[])=>{
+    let n = arr.length;
+    for(let i = 1; i < n; i++){
+        let curr = arr[i];
+        let j = i-1;
+        while(j>-1 && curr < arr[j]){
+            arr[j+1] = arr[j];
+            j--;
+        }
+        arr[j+1] = curr;
     }
     return arr;
 }

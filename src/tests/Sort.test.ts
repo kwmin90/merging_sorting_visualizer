@@ -1,5 +1,6 @@
 import { quickSortForTest } from '../algorithms/QuickSort';
 import { mergeSortHelperForTest } from '../algorithms/MergeSort';
+import { insertionSortForTest } from '../algorithms/InsertionSort';
 import { CreateRandomArrayForSort } from '../utils/utils';
 
 const array = CreateRandomArrayForSort();
@@ -34,9 +35,14 @@ describe('quickSort', ()=>{
     it('sorts properly', ()=>{
         expect(quickSortForTest(array, 0, array.length-1)).toSortProperly();
     })
-})
+});
 describe('mergeSort', ()=>{
     it('sorts properly', ()=>{
         expect(mergeSortHelperForTest(array, 0, array.length-1, auxArr)).toSortProperly();
     })
-})
+});
+describe('insertionSort', ()=>{
+    it('sorts properly', ()=>{
+        expect(insertionSortForTest(array)).toSortProperly();
+    })
+});
