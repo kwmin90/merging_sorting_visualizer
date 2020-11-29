@@ -2,11 +2,12 @@
   display: grid;
   grid-template-columns: 1fr 2fr;
   grid-template-rows: 1fr 1fr 2fr 1fr;
-  padding-top: 20px;
+  padding-top: 30px;
 
   margin: auto;
-  width: 60vw;
+  width: 50vw;
   min-width: 300px;
+  background-color: white;
 }
 .array-one {
   grid-column: 1;
@@ -42,10 +43,12 @@
   grid-column: 2/3;
   grid-row: 5;
   justify-items: center;
+  padding-bottom: 30px;
+  padding-top: 10px;
 }
 .array-item {
   display: inline-block;
   width: 20px;
   margin: 0 1px;
-  border: 1px solid black;
+  border: solid 1px black;
 }
