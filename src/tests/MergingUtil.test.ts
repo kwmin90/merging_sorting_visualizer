@@ -1,4 +1,4 @@
-import { mergeInSortedOrder, mergeInSortedOrderWithNoDuplicate} from '../utils/MergingUtil';
+import { mergeInSortedOrder, mergeInSortedOrderWithNoDuplicate} from '../algorithms/MergingSortedArrays';
 import { createRandomArray } from '../utils/utils';
 
 const arr1 = createRandomArray(15, 1, 20).sort((a, b) => a - b);

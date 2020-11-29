@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { createRandomArray } from "../../utils/utils";
 import "./SortingVisualizer.css";
-import { quickSort, getQuickSortAnimations } from "../../utils/sortingUtil";
+import { getQuickSortAnimations } from "../../algorithms/QuickSort";
+import { getMergeSortAnimations } from "../../algorithms/MergeSort";
+import { getHeapSortAnimations } from "../../algorithms/HeapSort";
 
 const CreateRandomArrayForSort = () => {
   return createRandomArray(100, 5, 300);
@@ -14,15 +16,22 @@ export const SortingVisualizer: React.FC = () => {
     setArray(CreateRandomArrayForSort);
   }, []);
 
-  // const isSorted = () => {
-  //   const temp = quickSort(array, 0, array.length - 1);
-  //   const temp2 = array.sort((a, b) => a - b);
-  //   if (temp === temp2) {
-  //     console.log("quicksort works!");
-  //   }
-  // };
   const quickSort = () => {
     const animations = getQuickSortAnimations(array);
+    sortAnimation(animations);
+  };
+
+  const mergeSort = () => {
+    const animations = getMergeSortAnimations(array);
+    sortAnimation(animations);
+  };
+  const heapSorte = () => {
+    const arr = [6, 4, 8, 3, 7, 4, 7, 8, 3, 7, 9];
+    getHeapSortAnimations(arr);
+    console.log(arr);
+  };
+
+  const sortAnimation = (animations: any) => {
     for (let i = 0; i < animations.length; i++) {
       const arrBars = Array.from(
         document.getElementsByClassName(
@@ -63,6 +72,14 @@ export const SortingVisualizer: React.FC = () => {
       >
         Quick Sort
       </button>
+      <button
+        onClick={() => {
+          mergeSort();
+        }}
+      >
+        Merge Sort
+      </button>
+      <button onClick={() => heapSorte()}>Heap Sort</button>
     </div>
   );
 };

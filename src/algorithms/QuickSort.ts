@@ -11,7 +11,29 @@ const swap = (arr: number[], low: number, high: number)=>{
     arr[high] = temp;
 }
 
-export const quickSort = (arr: number[], low: number, high: number, animations: any) =>{ //mergsorthelper
+const partition = (arr: number[], low: number, high: number, animations: any) =>{
+    let pivot = arr[Math.floor((low + high)/2)];
+    let i = low;
+    let j = high;
+   while (i <= j){
+       while(arr[i] < pivot){
+           i++;
+       }
+       while(arr[j] > pivot){
+           j--;
+       }
+       if(i <= j){
+           swap(arr, i, j);
+           animations.push([i, arr[i]])
+           animations.push([j, arr[j]])
+           i++;
+           j--;
+       }
+   }
+   return i;
+}
+
+export const quickSort = (arr: number[], low: number, high: number, animations: any) =>{
     let index;
     if(arr.length > 1){
         index = partition(arr, low, high, animations);
@@ -23,26 +45,4 @@ export const quickSort = (arr: number[], low: number, high: number, animations: 
         }
     }
     return arr;
-}
-
-const partition = (arr: number[], low: number, high: number, animations: any) =>{ //domerge
-    let pivot = arr[Math.floor((low + high)/2)];
-    let i = low;
-    let j = high;
-   while (i <= j){
-       while(arr[i] < pivot){
-           animations.push([i, arr[i]]);
-           i++;
-       }
-       while(arr[j] > pivot){
-           animations.push([i, arr[j]]);
-           j--;
-       }
-       if(i <= j){
-           swap(arr, i, j);
-           i++;
-           j--;
-       }
-   }
-   return i;
 }

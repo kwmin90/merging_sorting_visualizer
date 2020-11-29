@@ -4,7 +4,7 @@ import "./MergingVisualizer.css";
 import {
   mergeInSortedOrder,
   mergeInSortedOrderWithNoDuplicate,
-} from "../../utils/MergingUtil";
+} from "../../algorithms/MergingSortedArrays";
 import { ArrayItem } from "./ArrayItem";
 import { MergedArrayItem } from "./MergedArrayItem";
 
