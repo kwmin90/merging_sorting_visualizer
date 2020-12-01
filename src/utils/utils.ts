@@ -20,11 +20,27 @@ export const createRandomArrayForMerge = () => {
   };
 
 export const CreateRandomArrayForSort = () => {
-    return createRandomArray(110, 5, 400);
+    return createRandomArray(108, 5, 400);
   };
+// export const sortAnimation = (animations: any) => {
+//   for (let i = 0; i < animations.length; i++) {
+//     const arrBars = Array.from(
+//       document.getElementsByClassName(
+//         "array-bar"
+//       ) as HTMLCollectionOf<HTMLElement>
+//     );
+//     setTimeout(() => {
+//       const [barOneIdx, newHeight] = animations[i];
+//       const barOneStyle = arrBars[barOneIdx].style;
+//       barOneStyle.height = `${newHeight}px`;
+//     }, i * 10);
+//   }
+// };
 export const sortAnimation = (animations: any) => {
-  for (let i = 0; i < animations.length; i++) {
-    const arrBars = Array.from(
+  disableButton();
+  return new Promise((resolve)=>{
+    for (let i = 0; i < animations.length; i++) {
+      const arrBars = Array.from(
       document.getElementsByClassName(
         "array-bar"
       ) as HTMLCollectionOf<HTMLElement>
@@ -35,4 +51,20 @@ export const sortAnimation = (animations: any) => {
       barOneStyle.height = `${newHeight}px`;
     }, i * 10);
   }
+  setTimeout(()=>{
+    resolve(true);
+  }, animations.length*10)
+  }).then(()=>{
+    disableButton();
+  })
 };
+const disableButton = ()=>{
+  const btn = Array.from(document.querySelectorAll("button"));
+  btn.forEach((x)=>{
+    if(x.disabled){
+      x.disabled=false;
+    }else{
+      x.disabled=true;
+    }
+  });
+}

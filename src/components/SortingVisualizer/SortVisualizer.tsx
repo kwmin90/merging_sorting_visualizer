@@ -1,7 +1,6 @@
 import React from "react";
 import { CreateRandomArrayForSort } from "../../utils/utils";
 import "./SortVisualizer.css";
-//need to disable button while the animation is running
 interface SortingItemProps {
   array: number[];
   setArray: React.Dispatch<React.SetStateAction<number[]>>;
@@ -18,19 +17,22 @@ export const SortVisualizer: React.FC<SortingItemProps> = ({
   return (
     <div className="sorting-container">
       <div className="array-bar-container">
-        {array.map((value: number, index: number) => (
-          <div
-            className="array-bar"
-            key={index}
-            style={{
-              backgroundColor: "red",
-              height: `${value}px`,
-            }}
-          ></div>
-        ))}
+        <div className="array-bar-items">
+          {array.map((value: number, index: number) => (
+            <div
+              className="array-bar"
+              key={index}
+              style={{
+                backgroundColor: "red",
+                height: `${value}px`,
+              }}
+            ></div>
+          ))}
+        </div>
       </div>
       <div className="btn-sort">
         <button
+          disabled={false}
           onClick={() => {
             setArray(CreateRandomArrayForSort);
           }}
@@ -38,6 +40,7 @@ export const SortVisualizer: React.FC<SortingItemProps> = ({
           New Array
         </button>
         <button
+          disabled={false}
           onClick={() => {
             sort();
           }}
