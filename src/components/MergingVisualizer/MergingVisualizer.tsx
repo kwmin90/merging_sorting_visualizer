@@ -49,7 +49,6 @@ export const MergingVisualizer: React.FC = () => {
           mergedArr={mergedArray}
           displayArray={displayArray}
           setDisplayArray={setDisplayArray}
-          disabled={disabled}
           setDisabled={setDisabled}
         />
       </div>

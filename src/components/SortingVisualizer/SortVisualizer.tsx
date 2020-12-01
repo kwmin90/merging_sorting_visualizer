@@ -1,7 +1,7 @@
 import React from "react";
 import { CreateRandomArrayForSort } from "../../utils/utils";
 import "./SortVisualizer.css";
-
+//need to disable button while the animation is running
 interface SortingItemProps {
   array: number[];
   setArray: React.Dispatch<React.SetStateAction<number[]>>;

@@ -3,7 +3,6 @@ interface MergedArrayItemProps {
   mergedArr: number[];
   displayArray: number[];
   setDisplayArray: React.Dispatch<React.SetStateAction<number[]>>;
-  disabled: boolean;
   setDisabled: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
@@ -11,7 +10,6 @@ export const MergedArrayItem: React.FC<MergedArrayItemProps> = ({
   mergedArr,
   displayArray,
   setDisplayArray,
-  disabled,
   setDisabled,
 }) => {
   const delay = (ms: number) => {
@@ -27,9 +25,7 @@ export const MergedArrayItem: React.FC<MergedArrayItemProps> = ({
         await delay(200);
         setDisplayArray((arr: number[]) => [...arr, el]);
       }
-      if (disabled) {
-        setDisabled(false);
-      }
+      setDisabled(false);
     })();
   }, [mergedArr, setDisplayArray, setDisabled]);
   return (
