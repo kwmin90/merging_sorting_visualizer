@@ -25,7 +25,7 @@ const largestNum = (arr: number[]) =>{
 const radixSort = (arr: number[], animations: any)=>{
     let maxLength=largestNum(arr);
     for(let i = 0; i < maxLength+1; i++){
-        let buckets: any = Array.from({length: 10}, ()=>[]);
+        let buckets: any[] = Array.from({length: 10}, ()=>[]);
         for(let j = 0; j < arr.length; j++){
             let num: any = getNum(arr[j], i);
             console.log(num);
@@ -42,7 +42,7 @@ const radixSort = (arr: number[], animations: any)=>{
 export const radixSortForTest = (arr: number[])=>{
     let maxLength=largestNum(arr);
     for(let i = 0; i < maxLength+1; i++){
-        let buckets: any = Array.from({length: 10}, ()=>[]);
+        let buckets: any[] = Array.from({length: 10}, ()=>[]);
         for(let j = 0; j < arr.length; j++){
             let num: any = getNum(arr[j], i);
             if(num !== undefined) buckets[num].push(arr[j]);
