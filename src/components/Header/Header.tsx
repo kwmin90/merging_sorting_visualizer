@@ -22,6 +22,11 @@ export const Header: React.FC = () => {
           </Link>
         </li>
         <li>
+          <Link className="radixsort" to="/radixsort">
+            Radix Sort
+          </Link>
+        </li>
+        <li>
           <Link className="merge" to="/merge">
             Merge Two Sorted Arrays
           </Link>

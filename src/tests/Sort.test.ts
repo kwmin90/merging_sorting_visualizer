@@ -2,6 +2,7 @@ import { quickSortForTest } from '../algorithms/QuickSort';
 import { mergeSortHelperForTest } from '../algorithms/MergeSort';
 import { insertionSortForTest } from '../algorithms/InsertionSort';
 import { CreateRandomArrayForSort } from '../utils/utils';
+import { radixSortForTest } from '../algorithms/radixSort';
 
 const array = CreateRandomArrayForSort();
 const auxArr = array.slice();
@@ -17,7 +18,7 @@ declare global {
 expect.extend({
     toSortProperly(arr: number[]){
         const temp = array.sort((a,b)=>a-b);
-        if(arr === temp){
+        if(JSON.stringify(arr) === JSON.stringify(temp)){
             return{
                 message: ()=> 'sorted',
                 pass: true,
@@ -46,3 +47,8 @@ describe('insertionSort', ()=>{
         expect(insertionSortForTest(array)).toSortProperly();
     })
 });
+describe('radixSort', ()=>{
+    it('sorts properly', ()=>{
+        expect(radixSortForTest(array)).toSortProperly();
+    })
+})
